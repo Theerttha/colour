@@ -78,7 +78,7 @@ function App() {
 
       try {
         const imageData = ctx.getImageData(x, y, 1, 1);
-        const [r, g, b, a] = imageData.data;
+        const [r, g, b] = imageData.data;
         const rgb = `rgb(${r}, ${g}, ${b})`;
         const hex = `#${[r, g, b].map((x) => x.toString(16).padStart(2, '0')).join('')}`;
         setPixelRGB(rgb);
