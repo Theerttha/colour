@@ -10,10 +10,9 @@ function App() {
   const [pixelRGB, setPixelRGB] = useState<string | null>(null);
   const [pixelHex, setPixelHex] = useState<string | null>(null);
 
-
-
-  const URL = 'http://localhost:3000/upload';
-
+  const URL = import.meta.env.BACKEND_URL;
+  console.log(URL);
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
