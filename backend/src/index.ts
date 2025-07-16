@@ -17,11 +17,20 @@ app.post('', upload.single('file'), (req: Request, res: Response) => {
       res.status(400).json({ error: 'No file uploaded' });
       return;
     }
-    res.json({
-    message: 'File uploaded successfully',
-    filename: req.file.filename,
-    path: `/uploads/${req.file.filename}`
-  });
+    try{
+      res.json({
+      message: 'File uploaded successfully',
+      filename: req.file.filename,
+      path: `/uploads/${req.file.filename}`
+    });
+    }
+    catch(error){
+      console.log(error);
+      res.json({
+        er: error
+      })
+    }
+    
   });
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
