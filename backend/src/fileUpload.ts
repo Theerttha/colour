@@ -2,11 +2,11 @@ import multer, { diskStorage } from "multer";
 import path from "path";
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "uploads");
+    destination: function (req:Express.Request, file:Express.Multer.File, callback: (error: Error | null, destination: string)=>void) {
+        callback(null, "uploads");
     },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
+    filename: function (req:Express.Request, file:Express.Multer.File, callback: (error: Error | null, destination: string)=>void) {
+        callback(null, Date.now() + path.extname(file.originalname));
     },
  
 });

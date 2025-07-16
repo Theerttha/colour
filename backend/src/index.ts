@@ -10,7 +10,7 @@ app.use(cors());
 const port=3000;
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hell World!');
+    res.send('Hello World!');
 })
 app.post('/upload', upload.single('file'), (req: Request, res: Response) => {
     console.log(req.file);
