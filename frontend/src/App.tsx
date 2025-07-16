@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 function App() {
+  const URL = import.meta.env.BACKEND_URL || 'http://localhost:3000/upload';
   const [file, setFile] = useState<File | null>(null);
   const [name, setName] = useState('');
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -10,9 +11,10 @@ function App() {
   const [pixelRGB, setPixelRGB] = useState<string | null>(null);
   const [pixelHex, setPixelHex] = useState<string | null>(null);
 
-  const URL = import.meta.env.BACKEND_URL;
-  console.log(URL);
-  
+
+
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);

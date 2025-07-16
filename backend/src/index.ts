@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-
 import upload from './fileUpload';
 import path from 'path';
 const app = express();
@@ -12,7 +11,7 @@ app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!');
 })
-app.post('/upload', upload.single('file'), (req: Request, res: Response) => {
+app.post('/', upload.single('file'), (req: Request, res: Response) => {
     console.log(req.file);
     if (!req.file) {
       res.status(400).json({ error: 'No file uploaded' });
