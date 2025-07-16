@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-
+const URL = import.meta.env.VITE_BACKEND_URL;
 function App() {
-  const URL = import.meta.env.BACKEND_URL || 'http://localhost:3000/upload';
+
   const [file, setFile] = useState<File | null>(null);
   const [name, setName] = useState('');
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -50,7 +50,7 @@ function App() {
 
     const img = new Image();
     img.crossOrigin = 'anonymous';
-    img.src = `http://localhost:3000${name}`;
+    img.src = `${URL}${name}`;
 
     img.onload = () => {
       const width = 300;
